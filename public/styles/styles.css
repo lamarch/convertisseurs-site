@@ -1,0 +1,36 @@
+:root {
+    --color: #505768;
+    --border: #aab3c4;
+    --background: #fff;
+    --imp-background: #cad4e7;
+    --placeholder: #9ca0a8;
+
+    --border-focus: #275efe;
+    --color-focus: #fff;
+    --background-focus: #4267d6;
+}
+
+html {
+    box-sizing: border-box;
+    overflow-y: scroll;
+    background-color: rgb(238, 235, 252);
+}
+
+body {
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+h1,
+h3 {
+    margin: 0;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+}

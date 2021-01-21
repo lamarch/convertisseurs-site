@@ -1,0 +1,14 @@
+CODE TIME PROJECT SUMMARY     (Last updated on Wed, Jan 20th 9:22pm)
+
+        convertisseur kmh_ms :               Jan 10th, 2021 to Jan 16th, 2021
+            Active code time :                                        9.5 hrs
+                   Code time :                                       12.7 hrs
+                  Keystrokes :                                         21,792
+                         Kpm :                                             46
+                 Lines added :                                          3,979
+               Lines deleted :                                          1,138
+            Characters added :                                         55,050
+          Characters deleted :                                         40,485
+-----------------------------------------------------------------------------
+
+
