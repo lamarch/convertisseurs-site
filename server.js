@@ -6,8 +6,6 @@ import { env } from "process"
 //afin de lire le contenu d'un dossier
 import { readdir } from "fs"
 
-
-
 const dossiersConvertisseurs = "./public/convertisseurs/"
 
 function chargerConvertisseurs() {
@@ -96,7 +94,6 @@ app.get("/:nomConvertisseur", (req, res) => {
         res.render("page", {
             convertisseur,
             convertisseurs,
-            version,
         })
     } else {
         //il n'existe pas, on redirige vers l'accueil
