@@ -1,0 +1,7 @@
+{
+    "eslint.format.enable": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.parameterHints.enabled": true
+    }
+}

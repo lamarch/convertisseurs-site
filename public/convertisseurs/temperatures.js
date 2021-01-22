@@ -1,22 +1,25 @@
-import { convertirNombre, valeurNombreValide, chainifier } from "../utilite.mjs"
-import { creerConvertisseur } from "../lib.mjs"
-import { enregistrerConvertisseur } from "../navlib.mjs"
-const convertisseur = creerConvertisseur("Températures", valeurNombreValide)
+import { convertirNombre, valeurNombreValide, chainifier } from '../utilite.js'
+import {
+    creerConvertisseur,
+    enregistrerConvertisseur,
+} from '../convertisseur.js'
+
+const convertisseur = creerConvertisseur('Températures', valeurNombreValide)
 
 convertisseur
-    .ajouterGroupe("Communes")
+    .ajouterGroupe('Communes')
     .ajouterEntree(
-        "Degré Celcius",
+        'Degré Celcius',
         (val) => val + 273.15,
         (val) => val - 273.15
     )
     .ajouterEntree(
-        "Kelvin",
+        'Kelvin',
         (val) => val,
         (val) => val
     )
     .ajouterEntree(
-        "Fahrenheit",
+        'Fahrenheit',
         (val) => ((val - 32) * 5) / 9 + 273.15,
         (val) => ((val - 273.15) * 9) / 5 + 32
     )

@@ -1,9 +1,11 @@
-import { convertirNombre, valeurNombreValide, chainifier } from "../utilite.mjs"
-import { creerConvertisseur } from "../lib.mjs"
-import { enregistrerConvertisseur } from "../navlib.mjs"
+import { convertirNombre, valeurNombreValide, chainifier } from '../utilite.js'
+import {
+    creerConvertisseur,
+    enregistrerConvertisseur,
+} from '../convertisseur.js'
 
 const convertisseur = creerConvertisseur(
-    "vitesses",
+    'vitesses',
     //filtre global
     valeurNombreValide
 )
@@ -12,37 +14,37 @@ convertisseur.preTraitement = (val) => convertirNombre(val)
 convertisseur.postTraitement = (val) => chainifier(val, window.precision)
 
 convertisseur
-    .ajouterGroupe("Unités SI")
+    .ajouterGroupe('Unités SI')
     .ajouterEntree(
-        "m/s",
+        'm/s',
         (val) => val,
         (val) => val
     )
     .ajouterEntree(
-        "km/h",
+        'km/h',
         (val) => val / 3.6,
         (val) => val * 3.6
     )
 
 convertisseur
-    .ajouterGroupe("Autres")
+    .ajouterGroupe('Autres')
     .ajouterEntree(
-        "noeuds, miles nautiques/h",
+        'noeuds, miles nautiques/h',
         (val) => val / 3.6 / 1.852,
         (val) => val * 3.6 * 1.852
     )
     .ajouterEntree(
-        "mph",
+        'mph',
         (val) => val / 3.6 / 1.609,
         (val) => val * 3.6 * 1.609
     )
     .ajouterEntree(
-        "mach",
+        'mach',
         (val) => val / 3.6 / 340,
         (val) => val * 3.6 * 340
     )
     .ajouterEntree(
-        "pieds/min",
+        'pieds/min',
         (val) => val * 0.00508,
         (val) => val / 0.00508
     )

@@ -1,68 +1,66 @@
-function envoyerEvenement(el, type) {
-    var e = document.createEvent("HTMLEvents")
-    e.initEvent(type, false, true)
-    el.dispatchEvent(e)
-}
+import { envoyerEvenement, filtreEntree } from './utilite.js'
 
-//filtre l'entree des que l'input change afin d'éviter les caractères indésirables
-//et appelle l'évenement "onchange"
-function filtreEntree(input, filtre, onchange) {
-    // liste des evenements de changement de la valeur
-    // sur les inputs
-    ;[
-        "input",
-        "keydown",
-        "keyup",
-        "mousedown",
-        "mouseup",
-        "select",
-        "contextmenu",
-        "drop",
-    ].forEach(function (event) {
-        //pour chaque evenement
-        //on ajoute un écouteur
-        input.addEventListener(event, function () {
-            //lorsque l'év. survient on vérifie
-            //si la valeur est juste
-            if (filtre(this.value)) {
-                //valeur juste
-                //on actualise la nouvelle valeur
-                this.oldValue = this.value
-                //on change la séléction également
-                this.oldSelectionStart = this.selectionStart
-                this.oldSelectionEnd = this.selectionEnd
-                if (onchange) onchange(this.value)
-            } else if (this.hasOwnProperty("oldValue")) {
-                //si la valeur est fausse
-                //et qu'on peut remettre à l'ancienne valeur
-                //on remette à l'ancienne valeur
-                this.value = this.oldValue
-                //on change la selection également
-                this.setSelectionRange(
-                    this.oldSelectionStart,
-                    this.oldSelectionEnd
-                )
-            } else {
-                //valeur invalide, et l'entrée n'a pas enregistrée la valeur précédente
-                //on vide
-                this.value = ""
-            }
-        })
-    })
+/**
+ * Création d'un convertisseur.
+ * @param {string} nom - Le nom du convertisseur.
+ * @param {function} filtreGlobal - Filtre global à appliquer à toutes les entrées ne possédant pas de filtre.
+ */
+export function creerConvertisseur(nom, filtreGlobal = undefined) {
+    function ajouterEntree(nom, envoi, reception, filtre = undefined) {
+        const groupe = this
+
+        if (typeof filtre == 'undefined') {
+            filtre = groupe.conv.filtreGlobal
+        }
+
+        const entree = {
+            nom: nom,
+            envoi,
+            reception,
+            groupe,
+            filtre,
+        }
+        groupe.conv.entrees.push(entree)
+        groupe.entrees.push(entree)
+        return groupe
+    }
+
+    function ajouterGroupe(nom) {
+        const conv = this
+        const groupe = {
+            nom,
+            ajouterEntree,
+            conv,
+            entrees: [],
+        }
+        conv.groupes.push(groupe)
+        return groupe
+    }
+
+    return {
+        nom,
+        filtreGlobal,
+        ajouterGroupe,
+        preTraitement: (val) => val,
+        postTraitement: (val) => val,
+        entrees: [],
+        groupes: [],
+        inputmode: 'numeric',
+    }
 }
 
 function creerPrecision() {
     window.precision = 3
-    $("<div/>")
-        .load("./partials/precision.html", () => {
-            $("#precision")
-                .on("input", function () {
+    $('<div/>')
+        .load('./partials/precision.html', () => {
+            $('#precision')
+                .on('input', function () {
                     //on enleve le focus
                     //afin d'éviter de faire revenir la vue sur l'input sur les
                     //versions smartphone
                     const actif = document.activeElement
 
-                    if (actif.id !== "precision") {
+                    if (actif.id !== 'precision') {
                         actif.blur()
                     }
 
@@ -70,23 +68,23 @@ function creerPrecision() {
                     this.labels[0].innerText = `Précision : ${this.value}`
                     if (window.precisionChange) window.precisionChange()
                 })
-                .trigger("input")
+                .trigger('input')
         })
-        .appendTo(".form")
+        .appendTo('.form')
 }
 
 export function enregistrerConvertisseur(convertisseur) {
     //si nous sommes dans le navigateur
-    if (typeof $ != "undefined") {
+    if (typeof $ != 'undefined') {
         //on change le titre
         const titre = `Convertisseur : ${convertisseur.nom}`
         document.title = titre
-        $("#titre").text(titre)
+        $('#titre').text(titre)
 
         //on crée un sous composant qui va recueillir les différents groupes du convertisseur
-        const contenant = $("<div/>", {
-            class: "form",
-        }).appendTo("#main")
+        const contenant = $('<div/>', {
+            class: 'form',
+        }).appendTo('#main')
 
         //si le convertisseur requiert une barre de précision
         if (convertisseur.a_precision) {
@@ -104,8 +102,8 @@ export function enregistrerConvertisseur(convertisseur) {
                 .forEach((entree) => {
                     //si la valeur de l'entrée est vide, alors on laisse l'input à vide
                     //c'est uniquement esthétique
-                    if (typeof valeur == "undefined") {
-                        entree.element.value = ""
+                    if (typeof valeur == 'undefined') {
+                        entree.element.value = ''
                     } else {
                         //sinon, on appelle la fonction de conversion de l'entrée receptrice
                         //ceci converti la valeur dans le format et l'unité requis par la nouvelle
@@ -125,35 +123,35 @@ export function enregistrerConvertisseur(convertisseur) {
         //on crée les groupes dans le HTML
         convertisseur.groupes.forEach((groupe) => {
             //Pour chaque groupe on crée sa division correspondante
-            const groupeContenant = $("<div/>", { class: "sub-form" }).appendTo(
+            const groupeContenant = $('<div/>', { class: 'sub-form' }).appendTo(
                 contenant
             )
             //Titre du groupe
-            $("<h1/>", {
+            $('<h1/>', {
                 text: groupe.nom,
             }).appendTo(groupeContenant)
 
             groupe.entrees.forEach((entree) => {
                 //Pour chaque entree on crée sa division correspondante
-                const entreeContenant = $("<div/>", {
-                    class: "form-row",
+                const entreeContenant = $('<div/>', {
+                    class: 'form-row',
                 }).appendTo(groupeContenant)
 
                 //Input
-                const input = $("<input/>", {
-                    type: "text",
+                const input = $('<input/>', {
+                    type: 'text',
                     name: entree.nom,
                     id: entree.nom,
-                    class: "form-field",
+                    class: 'form-field',
                     placeholder: entree.nom,
                     inputmode: convertisseur.inputmode,
                 }).appendTo(entreeContenant)[0]
 
                 //Unité
-                $("<label/>", {
+                $('<label/>', {
                     text: entree.nom,
                     for: entree.nom,
-                    class: "form-label",
+                    class: 'form-label',
                 }).appendTo(entreeContenant)
 
                 input.onclick = function () {
@@ -163,7 +161,7 @@ export function enregistrerConvertisseur(convertisseur) {
                 entree.element = input
 
                 filtreEntree(input, entree.filtre, (valeur) => {
-                    if (valeur === "" || valeur === undefined) {
+                    if (valeur === '' || valeur === undefined) {
                         convertisseur.nouvelleValeur(entree.nom, undefined)
                     } else {
                         convertisseur.nouvelleValeur(
@@ -179,7 +177,7 @@ export function enregistrerConvertisseur(convertisseur) {
         //on envoi un évenement 'faux' à la première entrée de la liste
         if (convertisseur.entrees.length > 0) {
             window.precisionChange = () => {
-                envoyerEvenement(convertisseur.entrees[0].element, "mouseup")
+                envoyerEvenement(convertisseur.entrees[0].element, 'mouseup')
             }
         }
     }

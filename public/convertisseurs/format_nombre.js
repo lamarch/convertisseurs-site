@@ -1,11 +1,13 @@
-import { creerConvertisseur } from "../lib.mjs"
-import { enregistrerConvertisseur } from "../navlib.mjs"
+import {
+    creerConvertisseur,
+    enregistrerConvertisseur,
+} from '../convertisseur.js'
 
-const chiffres = "0123456789".split("")
-const hex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
+const chiffres = '0123456789'.split('')
+const hex = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
 function baseValide(base) {
-    return typeof base == "number" && base > 1 && base <= hex.length + 10
+    return typeof base == 'number' && base > 1 && base <= hex.length + 10
 }
 
 function divEntiere(dividende, diviseur) {
@@ -15,7 +17,7 @@ function divEntiere(dividende, diviseur) {
 
 function representation_valide(nombre, base) {
     if (!baseValide(base)) return false
-    if (typeof nombre != "string") return false
+    if (typeof nombre != 'string') return false
 
     nombre = nombre.toUpperCase()
 
@@ -75,7 +77,7 @@ function versBase10(repr_nombre, depuis_base) {
 
 function depuisBase10(nombre, vers_base) {
     if (!baseValide(vers_base)) return undefined
-    if (!nombre) return "0"
+    if (!nombre) return '0'
 
     if (nombre < vers_base) {
         if (nombre > 9) return hex[nombre - 10]
@@ -90,48 +92,48 @@ function depuisBase10(nombre, vers_base) {
 
         chiffres = [depuisBase10(+resultat.reste, vers_base), ...chiffres]
     }
-    if (chiffres.length == 0) return "0"
-    return chiffres.join("")
+    if (chiffres.length == 0) return '0'
+    return chiffres.join('')
 }
 
 const convertisseur = creerConvertisseur(
-    "base des nombres",
+    'base des nombres',
     undefined,
     (val) => {
-        if (val == 0) val = ""
+        if (val == 0) val = ''
         return val
     }
 )
 
 convertisseur
-    .ajouterGroupe("Communes")
+    .ajouterGroupe('Communes')
     .ajouterEntree(
-        "Base 2 (binaire)",
+        'Base 2 (binaire)',
         (val) => versBase10(val, 2),
         (val) => depuisBase10(val, 2),
         (val) => representation_valide(val, 2)
     )
     .ajouterEntree(
-        "Base 8 (octale)",
+        'Base 8 (octale)',
         (val) => versBase10(val, 8),
         (val) => depuisBase10(val, 8),
         (val) => representation_valide(val, 8)
     )
     .ajouterEntree(
-        "Base 10 (décimale)",
+        'Base 10 (décimale)',
         (val) => versBase10(val, 10),
         (val) => depuisBase10(val, 10),
         (val) => representation_valide(val, 10)
     )
     .ajouterEntree(
-        "Base 16 (hexadécimale)",
+        'Base 16 (hexadécimale)',
         (val) => versBase10(val, 16),
         (val) => depuisBase10(val, 16),
         (val) => representation_valide(val, 16)
     )
 
 convertisseur.ordre = 20
-convertisseur.inputmode = "text" //on accepte les lettres puisque la base 16
+convertisseur.inputmode = 'text' //on accepte les lettres puisque la base 16
 
 enregistrerConvertisseur(convertisseur)
 
