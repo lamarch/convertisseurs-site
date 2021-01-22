@@ -1,13 +1,16 @@
 {
-    "name": "convertisseur-kmh_ms",
+    "name": "site-convertisseurs",
     "version": "1.0.0",
-    "description": "",
+    "description": "Un petit site de conversion d'unité basique mais fonctionnel.",
     "main": "server.js",
+    "repository": {
+        "url": "https://github.com/lamarch/convertisseurs-site.git"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon server.js"
+        "start": "node server.js"
     },
-    "author": "",
+    "author": "MARCHAL Paul",
     "license": "ISC",
     "type": "module",
     "dependencies": {
