@@ -7,8 +7,8 @@
         "url": "https://github.com/lamarch/convertisseurs-site.git"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
+        "start": "node server.js",
+        "debug": "set PORT=80&& nodemon --inspect server.js"
     },
     "author": "MARCHAL Paul",
     "license": "ISC",
@@ -23,6 +23,7 @@
         "eslint-config-prettier": "^7.2.0",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-prettier": "^3.3.1",
+        "nodemon": "^2.0.7",
         "prettier": "^2.2.1"
     }
 }
