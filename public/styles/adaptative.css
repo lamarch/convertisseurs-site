@@ -4,7 +4,7 @@ Fichier CSS de modification pour les écrans mobiles.
 
 */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 710px) {
     .card-container {
         margin: 10px;
         flex-direction: column;

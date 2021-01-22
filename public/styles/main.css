@@ -1,6 +1,7 @@
 #main {
     text-align: center;
     padding: 15px;
+    height: 100%;
 }
 
 /*
@@ -120,6 +121,10 @@ Lorsque l'on séléctionne l'entrée, on "illumine" le label correspondant
     background: var(--background-focus);
     border-color: var(--border-focus);
 }
+
+/*
+Styles pour la barre de définition de la précision
+*/
 
 #precision-wrapper {
     display: flex;

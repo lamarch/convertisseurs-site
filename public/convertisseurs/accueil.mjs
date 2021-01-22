@@ -1,6 +1,6 @@
 if (typeof $ != "undefined") {
-    $(()=>{
-        $('#main').load('../partials/accueil.html')
+    $(() => {
+        $("#main").load("../partials/accueil.html")
     })
 }
 

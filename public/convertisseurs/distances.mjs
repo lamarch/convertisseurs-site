@@ -1,10 +1,6 @@
-import { convertirNombre } from "../lib.mjs"
-import { arrondir } from "../lib.mjs"
-import {
-    valeurNombreValide,
-    creerConvertisseur,
-    enregistrerConvertisseur,
-} from "../lib.mjs"
+import { convertirNombre, valeurNombreValide, chainifier } from "../utilite.mjs"
+import { creerConvertisseur } from "../lib.mjs"
+import { enregistrerConvertisseur } from "../navlib.mjs"
 
 const unites_si = {
     nanomètres: 0.001,
@@ -49,7 +45,7 @@ const convertisseur = creerConvertisseur(
 )
 
 convertisseur.preTraitement = (val) => convertirNombre(val)
-convertisseur.postTraitement = (val) => arrondir(val, window.precision)
+convertisseur.postTraitement = (val) => chainifier(val, window.precision)
 
 let groupe = convertisseur.ajouterGroupe("Système International")
 

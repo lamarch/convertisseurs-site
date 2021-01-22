@@ -6,16 +6,18 @@ header {
     justify-content: center;
 }
 
-header input[type="range"] {
-    margin: 0 auto;
-}
-
+/*
+Contenant pour les éléments du menu
+*/
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+/*
+Elément du menu
+*/
 .card {
     box-sizing: border-box;
     border: 1px solid var(--border);
@@ -27,6 +29,7 @@ header input[type="range"] {
     margin: 1em 0;
 }
 
+/*Elément du menu séléctionné*/
 .card.selected-card {
     border-color: var(--border-focus);
     color: var(--color-focus);
@@ -48,8 +51,4 @@ header input[type="range"] {
 .card a {
     padding: 0;
     text-decoration: none;
-}
-
-#nom {
-    text-align: center;
 }

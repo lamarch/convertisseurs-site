@@ -1,12 +1,36 @@
-<h1>Accueil</h1>
-<p>Bienvenue sur {nom du site super cool}.</p>
-<h2 class="attention">Site en construction !</h2>
-<p>
-    Il se peut que vous rencontriez quelques problèmes de mise en page, de faux
-    calculs ou bien même un accès impossible au site. Nous vous remercions de
-    votre patience.
-</p>
-<h4 style="position: fixed; bottom: 0; margin: 0; width: 100%">
-    Made with <span style="color: red">♥</span> by Paul Marchal, version
-    alpha-2101
-</h4>
+<div id="accueil-wrapper">
+    <h1>Accueil</h1>
+    <p>Bienvenue sur {nom du site super cool}.</p>
+    <h2 class="attention">Site en construction !</h2>
+    <p>
+        Il se peut que vous rencontriez quelques problèmes de mise en page, de
+        faux calculs ou bien même un accès impossible au site. Nous vous
+        remercions de votre patience.
+    </p>
+    <h4>Liste des convertisseurs en développement :</h4>
+    <ul style="text-align: left">
+        <li>Poids (en étude)</li>
+        <li>Surface (en étude)</li>
+        <li>Volume (en étude)</li>
+        <li>Electricité (en étude)</li>
+    </ul>
+    <h4 id="acc-footer">
+        Made with <span style="color: red">♥</span> by Paul Marchal, version
+        alpha 21.22
+    </h4>
+</div>
+<style>
+    #accueil-wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-items: flex-start;
+        align-items: center;
+    }
+    #acc-footer {
+        justify-self: flex-end;
+        margin: 0;
+        margin-top: auto;
+        width: 100%;
+    }
+</style>

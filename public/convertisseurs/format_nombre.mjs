@@ -1,3 +1,6 @@
+import { creerConvertisseur } from "../lib.mjs"
+import { enregistrerConvertisseur } from "../navlib.mjs"
+
 const chiffres = "0123456789".split("")
 const hex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
 
@@ -91,14 +94,8 @@ function depuisBase10(nombre, vers_base) {
     return chiffres.join("")
 }
 
-import {
-    valeurNombreEntierValide,
-    creerConvertisseur,
-    enregistrerConvertisseur,
-} from "../lib.mjs"
-
 const convertisseur = creerConvertisseur(
-    "format des nombres",
+    "base des nombres",
     undefined,
     (val) => {
         if (val == 0) val = ""
@@ -133,8 +130,9 @@ convertisseur
         (val) => representation_valide(val, 16)
     )
 
-enregistrerConvertisseur(convertisseur)
-
 convertisseur.ordre = 20
+convertisseur.inputmode = "text" //on accepte les lettres puisque la base 16
+
+enregistrerConvertisseur(convertisseur)
 
 export { convertisseur }

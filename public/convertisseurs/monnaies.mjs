@@ -1,8 +1,6 @@
-import {
-    valeurNombreValide,
-    creerConvertisseur,
-    enregistrerConvertisseur,
-} from "../lib.mjs"
+import { convertirNombre, valeurNombreValide, chainifier } from "../utilite.mjs"
+import { creerConvertisseur } from "../lib.mjs"
+import { enregistrerConvertisseur } from "../navlib.mjs"
 
 const noms = {
     USD: "Dollar (Etats-Unis)",
@@ -72,5 +70,9 @@ if (typeof $ != "undefined") {
         enregistrerConvertisseur(convertisseur)
     })
 }
+
+convertisseur.preTraitement = (val) => convertirNombre(val)
+convertisseur.postTraitement = (val) => chainifier(val, window.precision)
+convertisseur.a_precision = true
 
 export { convertisseur }
