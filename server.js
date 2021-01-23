@@ -91,7 +91,6 @@ app.get('/:nomConvertisseur', (req, res) => {
     if (convertisseur) {
         //on demande à notre Moteur de Rendu Dynamique (ejs)
         //de créer une page avec ce genre de convertisseur
-        console.log(convertisseur.nom)
         res.render('page', {
             convertisseur,
             convertisseurs,

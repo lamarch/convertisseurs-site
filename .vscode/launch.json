@@ -10,8 +10,7 @@
             "type": "node",
             "processId": "${command:PickProcess}",
             "restart": true,
-            "protocol": "inspector",
-            "preLaunchTask": "npm: debug"
+            "protocol": "inspector"
         },
         {
             "type": "node",
