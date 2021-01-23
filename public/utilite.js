@@ -1,4 +1,4 @@
-export const valeurNombreValide = (valeur) => /^-?\d*[\.,]?\d*$/.test(valeur)
+export const valeurNombreValide = (valeur) => /^-?\d*[.,]?\d*$/.test(valeur)
 export const valeurNombreEntierValide = (valeur) => /^\d*$/.test(valeur)
 export const convertirNombre = (valeur) => {
     //TODO : enlever la notation scientifique dans la conversion de chaine en nombre sur les grands nombres
