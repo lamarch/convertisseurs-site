@@ -29,7 +29,7 @@ convertisseur
         (val) => val / 735.49875
     )
     .ajouterEntree(
-        'ch (cheval-vapeur impérial britannique)',
+        'hp (cheval-vapeur impérial britannique)',
         (val) => val * 745.7,
         (val) => val / 745.7
     )
