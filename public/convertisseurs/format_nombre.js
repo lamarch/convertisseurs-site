@@ -3,6 +3,8 @@ import {
     enregistrerConvertisseur,
 } from '../convertisseur.js'
 
+import { filtreEntree, convertirNombre } from '../utilite.js'
+
 const chiffres = '0123456789'.split('')
 const hex = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
@@ -132,9 +134,52 @@ convertisseur
         (val) => representation_valide(val, 16)
     )
 
+let bases = [2, 8, 10, 16]
+let groupe_autres = undefined
+let input = undefined
+
+function ajouterBase() {
+    if (groupe_autres == undefined) {
+        groupe_autres = convertisseur.ajouterGroupe(`Autres`)
+    }
+
+    const base_n = convertirNombre(input[0].value)
+    if (bases.includes(base_n)) return
+
+    groupe_autres.ajouterEntree(
+        `Base ${base_n}`,
+        (val) => versBase10(val, base_n),
+        (val) => depuisBase10(val, base_n)
+    )
+    console.log(groupe_autres)
+}
+
 convertisseur.ordre = 20
 convertisseur.inputmode = 'text' //on accepte les lettres puisque la base 16
 
 enregistrerConvertisseur(convertisseur)
+
+if (typeof $ != 'undefined') {
+    const contenant = $('.form')[0]
+    const element = $('<div/>', { class: 'form-row' })
+    input = $('<input/>', {
+        type: 'text',
+        name: 'entree-bases',
+        id: 'entree-bases',
+        class: 'form-field',
+        placeholder: 'Ajouter une base',
+    })
+    const bt = $('<input/>', {
+        type: 'button',
+        name: 'ajouter-bases',
+        id: 'ajouter-bases',
+        class: 'form-button',
+        value: 'Ajouter',
+    }).click(ajouterBase)
+    $(input).appendTo(element)
+    //filtreEntree(input, baseValide, undefined)
+    $(bt).appendTo(element)
+    $(element).appendTo(contenant)
+}
 
 export { convertisseur }

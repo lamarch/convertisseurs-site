@@ -65,12 +65,23 @@ Hiérarchie :
 .form-label {
     text-align: center;
     padding: 8px 12px;
-    line-height: 25px;
     color: var(--color);
     background: var(--imp-background);
     border: 1px solid var(--border);
     transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
     width: 200px;
+}
+
+.form-button {
+    font-size: inherit;
+    text-align: center;
+    padding: 8px 12px;
+    color: var(--color-focus);
+    background: var(--background-focus);
+    border: 1px solid var(--border-focus);
+    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+    width: 200px;
+    cursor: pointer;
 }
 
 /*
@@ -92,24 +103,35 @@ Modifications de pseudo-classes et éléments :
 /*
 Pour tous les éléments étant en début de ligne.
 */
-.form-label:first-child,
-.form-field:first-child {
+.form-row > :first-child {
     border-radius: 6px 0 0 6px;
 }
 
 /*
 Pour tous les éléments étant en fin de ligne.
 */
-.form-label:last-child,
-.form-field:last-child {
+.form-row > :last-child {
     border-radius: 0 6px 6px 0;
+}
+
+/*
+Element seul dans la ligne
+*/
+.form-row > :last-child:first-child {
+    border-radius: 6px;
+}
+
+/*
+Element au milieu d'autres
+*/
+.form-row > :not(:first-child):not(:last-child) {
+    border-radius: 0;
 }
 
 /*
 Pour tous les éléments n'étant pas en début de ligne, on les décale vers la gauche pour plus de beauté
 */
-.form-label:not(:first-child),
-.form-field:not(:first-child) {
+.form-row > :not(:first-child) {
     margin-left: -1px;
 }
 
@@ -120,6 +142,15 @@ Lorsque l'on séléctionne l'entrée, on "illumine" le label correspondant
     color: var(--color-focus);
     background: var(--background-focus);
     border-color: var(--border-focus);
+}
+
+/*
+Lorsque l'on séléctionne l'entrée, on "illumine" le bouton correspondant
+*/
+.form-row:focus-within > .form-button {
+    color: var(--color);
+    background: var(--background);
+    border-color: var(--border);
 }
 
 /*
