@@ -1,2 +1,8 @@
+# node modules
 node_modules
+
+# ngrok agent 
 /ngrok.exe
+
+# environment variables
+.env

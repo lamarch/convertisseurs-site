@@ -7,6 +7,7 @@ import { env } from 'process'
 import { readdir } from 'fs'
 
 const dossiersConvertisseurs = './public/convertisseurs/'
+let port = env.PORT
 
 function chargerConvertisseurs() {
     //parcours le dossier './public/convertisseurs/' à la recherche de fichier js
@@ -106,7 +107,10 @@ app.get('*', (req, res) => {
     res.send('Page inexistante.')
 })
 
+if (port == 'undefined') {
+    console.log('Attention ! Aucun port spécifié : port par defaut = 80')
+    port = 80
+}
+
 //on lance le serveur logiciel
-app.listen(env.PORT, () =>
-    console.log('Serveur démarré sur le port : ' + env.PORT)
-)
+app.listen(port, () => console.log('Serveur démarré sur le port : ' + port))

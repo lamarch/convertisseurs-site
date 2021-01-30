@@ -7,13 +7,14 @@
         "url": "https://github.com/lamarch/convertisseurs-site.git"
     },
     "scripts": {
-        "start": "node server.js",
-        "debug": "set PORT=80&& nodemon --inspect server.js"
+        "prod": "node -r dotenv/config server.js",
+        "dev": "nodemon -r dotenv/config --inspect server.js"
     },
     "author": "MARCHAL Paul",
     "license": "ISC",
     "type": "module",
     "dependencies": {
+        "dotenv": "^8.2.0",
         "ejs": "^3.1.5",
         "express": "^4.17.1"
     },
