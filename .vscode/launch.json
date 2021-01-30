@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Node: nodemon",
+            "name": "Dev : nodemon",
             "request": "attach",
             "type": "node",
             "processId": "${command:PickProcess}",
@@ -13,14 +13,11 @@
             "protocol": "inspector"
         },
         {
-            "type": "node",
+            "name": "Prod : node",
             "request": "launch",
-            "name": "Launch Program",
+            "type": "node",
             "console": "integratedTerminal",
             "skipFiles": ["<node_internals>/**"],
-            "env": {
-                "PORT": "80"
-            },
             "program": "${workspaceFolder}\\server.js"
         }
     ]
