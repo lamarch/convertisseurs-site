@@ -13,7 +13,8 @@
     },
     "rules": {
         "semi": "off",
-        "prettier/prettier": "warn"
+        "prettier/prettier": "warn",
+        ""
     },
     "plugins": ["prettier"]
 }
