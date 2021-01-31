@@ -6,6 +6,15 @@ import { env } from 'process'
 //afin de lire le contenu d'un dossier
 import { readdir } from 'fs'
 
+//Git infos, pour le versioning
+import gitInfo from 'git-commit-info'
+
+const git_infos = gitInfo()
+const git_infos_date = new Date(Date.parse(git_infos.date))
+    .toISOString()
+    .replace(/T/, ' ') // replace T with a space
+    .replace(/\..+/, '') // delete the dot and everything after
+const version = `\\"${git_infos_date} - ${git_infos.shortHash}\\"`
 const dossiersConvertisseurs = './public/convertisseurs/'
 let port = env.PORT
 
@@ -95,6 +104,7 @@ app.get('/:nomConvertisseur', (req, res) => {
         res.render('page', {
             convertisseur,
             convertisseurs,
+            version,
         })
     } else {
         //il n'existe pas, on redirige vers l'accueil
