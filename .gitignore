@@ -6,6 +6,3 @@ node_modules
 
 # environment variables
 .env
-
-#ficiers de script
-/scripts/
