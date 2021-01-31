@@ -6,9 +6,6 @@ import { env } from 'process'
 //afin de lire le contenu d'un dossier
 import { readdir } from 'fs'
 
-//PM2.IO
-import pm2io from '@pm2/io'
-
 const dossiersConvertisseurs = './public/convertisseurs/'
 let port = env.PORT
 
@@ -36,10 +33,6 @@ function chargerConvertisseurs() {
                         //le convertisseur a pour adresse le nom de fichier (unique)
                         module.convertisseur.adresse = fichier
                         //ajouter à la liste des convertisseurs
-                        module.convertisseur.compteur = pm2io.counter({
-                            name: `Realtime requests on : ${fichier}`,
-                            id: `convertisseurs/${fichier}/requests`
-                        })
                         convertisseurs.push(module.convertisseur)
                         //et on réordonne la liste en fonction de la propriété 'ordre'
                         //des convertisseurs, afin de pouvoir définir qui va devant qui
@@ -61,16 +54,6 @@ function chargerConvertisseurs() {
 
 const convertisseurs = chargerConvertisseurs()
 
-const compteurs_requetes = pm2io.compteur({
-    name: `Realtime requests`,
-    id: `app/requests`
-})
-
-const compteur_mauvaises_requetes = pm2io.compteur({
-    name: `Realtime bad requests`,
-    id: `app/bad_requests`
-})
-
 //on charge un routeur de l'api ExpressJS
 let app = express()
 
@@ -88,7 +71,6 @@ app.use(express.static('public'))
 
 //debogage des requêtes
 app.use((req, res, next) => {
-    compteurs_requetes.inc()
     //affiche quelle URL est demandée
     console.log(`URL : ${req.url}`)
     next()
@@ -108,7 +90,6 @@ app.get('/:nomConvertisseur', (req, res) => {
     )
     //s'il existe
     if (convertisseur) {
-        convertisseur.compteur.inc()
         //on demande à notre Moteur de Rendu Dynamique (ejs)
         //de créer une page avec ce genre de convertisseur
         res.render('page', {
@@ -117,13 +98,12 @@ app.get('/:nomConvertisseur', (req, res) => {
         })
     } else {
         //il n'existe pas, on redirige vers l'accueil
-        res.redirect('/bad')
+        res.redirect('/')
     }
 })
 
 //page inconnue
-app.get('/bad', (req, res) => {
-    compteur_mauvaises_requetes.inc()
+app.get('*', (req, res) => {
     res.send('Page inexistante.')
 })
 
