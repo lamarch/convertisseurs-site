@@ -88,14 +88,18 @@ app.use((req, res, next) => {
 //page principale '/'
 app.get('/', (req, res) => {
     //on redirige vers '/accueil.mjs' (l'adresse du 'convertisseur' de l'accueil)
-    res.redirect('/accueil.js')
+    res.redirect('/accueil')
 })
 
 //page d'un convertisseur
 app.get('/:nomConvertisseur', (req, res) => {
+    let nomConvertisseur = req.params.nomConvertisseur
+    if (!nomConvertisseur.endsWith('.js')) {
+        nomConvertisseur += '.js'
+    }
     //on recherche le convertisseur qui correspond à cette adresse
     const convertisseur = convertisseurs.find(
-        (conv) => conv.adresse === req.params.nomConvertisseur
+        (conv) => conv.adresse === nomConvertisseur
     )
     //s'il existe
     if (convertisseur) {
