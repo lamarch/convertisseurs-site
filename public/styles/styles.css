@@ -2,7 +2,7 @@
     --color: #20242c;
     --border: #aab3c4;
     --background: #fff;
-    --imp-background: #cad4e7;
+    --imp-background: #b6c0d3;
     --main-background: rgb(238, 235, 252);
     --placeholder: #9ca0a8;
 
@@ -15,7 +15,7 @@
     --color: #d3cfc9;
     --border: #444a4d;
     --background: #000;
-    --imp-background: #1d2021;
+    --imp-background: #272b2c;
     --main-background: #181a1b;
     --placeholder: #9ca0a8;
 
@@ -29,6 +29,7 @@ html {
     overflow-y: scroll;
     background-color: var(--main-background);
     color: var(--color);
+    transition: background-color 0.3s ease;
 }
 
 body {

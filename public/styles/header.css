@@ -4,6 +4,8 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: var(--imp-background);
+    transition: background-color 0.3s ease;
 }
 
 .header-nav {
@@ -19,6 +21,7 @@ header {
 #theme-switch-ctr {
     margin-left: auto;
     justify-self: flex-end;
+    align-self: center;
 }
 
 /*
