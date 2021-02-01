@@ -10,7 +10,7 @@ const noms = {
     CAD: 'Dollar Canadien',
     CHF: 'Franc Suisse',
     GBP: 'Livre (Grande-Bretagne)',
-    EUR: 'Euro (Europe)',
+    EUR: 'Euro (Union Européenne)',
     HKD: 'Dollar de Hong Kong',
     ISK: 'Couronne Islandaise',
     PHP: 'Peso Phillipins',
@@ -22,7 +22,7 @@ const noms = {
     IDR: 'Rupiah (Indonésie)',
     INR: 'Indian Rupee Indienne (Bhoutan)',
     BRL: 'Real Brésilien',
-    RUB: 'Ruble Russe',
+    RUB: 'Rouble Russe',
     HRK: 'Kuna (Croatie)',
     JPY: 'Yen (Japon)',
     THB: 'Baht (Thailande)',
@@ -49,7 +49,6 @@ const groupe_autre = convertisseur.ajouterGroupe('Autres')
 if (typeof $ != 'undefined') {
     //Si nous sommes dans le navigateur
     $.get('https://api.exchangeratesapi.io/latest', (reponse) => {
-        console.log(reponse)
         const taux_echanges = { ...reponse.rates, EUR: 1 }
 
         for (let nom_taux in taux_echanges) {
@@ -61,7 +60,6 @@ if (typeof $ != 'undefined') {
             const envoie = (val) => val / val_taux
             const reception = (val) => val * val_taux
 
-            console.log(nom_taux)
             if (taux_communs.includes(nom_taux)) {
                 groupe_commun.ajouterEntree(nom, envoie, reception)
             } else {
