@@ -6,6 +6,21 @@ header {
     justify-content: center;
 }
 
+.header-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.header-nav-list {
+    margin: 0 1em;
+}
+
+#theme-switch-ctr {
+    margin-left: auto;
+    justify-self: flex-end;
+}
+
 /*
 Contenant pour les éléments du menu
 */
@@ -51,4 +66,7 @@ Elément du menu
 .card a {
     padding: 0;
     text-decoration: none;
+}
+
+#header {
 }

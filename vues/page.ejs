@@ -41,6 +41,7 @@
             crossorigin="anonymous"
         ></script>
 
+
         <script>        
         window.version = "<%-version%>"
         </script>
@@ -48,16 +49,25 @@
     </head>
     <body>
         <header>
-            <nav class="card-container">
-                <% convertisseurs.forEach((conv)=>{ %>
-                <a
-                    href="<%=conv.adresse%>"
-                    style="text-decoration: none"
-                    class="card <%= conv.adresse == convertisseur.adresse ? "selected-card" : ""%>"
-                >
-                    <div><%= conv.nom.replace(/^\w/, c => c.toUpperCase());%></div>
-                </a>
-                <% }) %>
+            <nav class="header-nav">
+                <div  class="header-nav-list card-container">
+
+                    <% convertisseurs.forEach((conv)=>{ %>
+                        <a
+                        href="<%=conv.adresse%>"
+                        style="text-decoration: none"
+                        class="card <%= conv.adresse == convertisseur.adresse ? "selected-card" : ""%>"
+                        >
+                        <div>
+                            <%= conv.nom.replace(/^\w/, c => c.toUpperCase());%>
+                        </div>
+                        </a>
+                    <% }) %>
+                </div>
+                <div id="theme-switch-ctr">
+                    <label for="theme-switch">Dark theme : </label>
+                    <input id="theme-switch" type="checkbox">
+                </div>
             </nav>
 
         </header>
@@ -66,5 +76,6 @@
         </main>
 
     </body>
+        <script src="dark_theme_script.js" defer></script>
 
 </html>
