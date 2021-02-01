@@ -1,6 +1,2 @@
 @import 'modules/input.range.css';
-h2.attention {
-    color: rgb(223, 85, 85);
-    border: 1px dashed red;
-    padding: 10px;
-}
+@import 'modules/h2.css';
