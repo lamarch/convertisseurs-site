@@ -29,7 +29,6 @@ html {
     overflow-y: scroll;
     background-color: var(--main-background);
     color: var(--color);
-    transition: background-color 0.3s ease;
 }
 
 body {
