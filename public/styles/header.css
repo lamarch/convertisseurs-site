@@ -1,9 +1,8 @@
+@import 'adaptatives/header.css';
+
 header {
     width: 100%;
     z-index: 9;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     background-color: var(--imp-background);
     transition: background-color 0.3s ease;
 }
@@ -22,6 +21,7 @@ header {
     margin-left: auto;
     justify-self: flex-end;
     align-self: center;
+    margin-right: 10px;
 }
 
 /*
@@ -69,7 +69,4 @@ Elément du menu
 .card a {
     padding: 0;
     text-decoration: none;
-}
-
-#header {
 }
