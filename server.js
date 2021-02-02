@@ -11,10 +11,13 @@ import gitInfo from 'git-commit-info'
 
 const git_infos = gitInfo()
 const git_infos_date = new Date(Date.parse(git_infos.date))
+git_infos_date.setHours(git_infos_date.getHours() + 1)
+const git_infos_date_str = git_infos_date
     .toISOString()
     .replace(/T/, ' ') // replace T with a space
     .replace(/\..+/, '') // delete the dot and everything after
-const version = `\\"${git_infos_date} - ${git_infos.shortHash}\\"`
+const version = `\\"${git_infos_date_str} - ${git_infos.shortHash}\\"`
+
 const dossiersConvertisseurs = './public/convertisseurs/'
 let port = env.PORT
 
