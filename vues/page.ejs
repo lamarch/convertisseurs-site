@@ -46,13 +46,13 @@
     <body>
         <header>
             <nav class="header-nav">
-                <div  class="header-nav-list card-container">
+                <div  class="menu-list card-container">
 
                     <% convertisseurs.forEach((conv)=>{ %>
                         <a
                         href="<%=conv.adresse.slice(0, -3)%>"
                         style="text-decoration: none"
-                        class="card <%= conv.adresse == convertisseur.adresse ? "selected-card" : ""%>"
+                        class="card menu-item <%= conv.adresse == convertisseur.adresse ? "selected-card" : ""%>"
                         >
                         <div>
                             <%= conv.nom.replace(/^\w/, c => c.toUpperCase());%>

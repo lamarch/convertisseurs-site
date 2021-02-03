@@ -1,0 +1,16 @@
+.card-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.card:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.card:not(:first-child) {
+    margin-left: -1px;
+}
+
+.card:last-child {
+    border-radius: 0 6px 6px 0;
+}

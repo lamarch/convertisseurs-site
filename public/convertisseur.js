@@ -70,7 +70,7 @@ function creerPrecision() {
                 })
                 .trigger('input')
         })
-        .appendTo('.form')
+        .appendTo('.convertisseur')
 }
 
 export function enregistrerConvertisseur(convertisseur) {
@@ -83,7 +83,7 @@ export function enregistrerConvertisseur(convertisseur) {
 
         //on crée un sous composant qui va recueillir les différents groupes du convertisseur
         const contenant = $('<div/>', {
-            class: 'form',
+            class: 'convertisseur',
         }).appendTo('#main')
 
         //si le convertisseur requiert une barre de précision
@@ -123,9 +123,9 @@ export function enregistrerConvertisseur(convertisseur) {
         //on crée les groupes dans le HTML
         convertisseur.groupes.forEach((groupe) => {
             //Pour chaque groupe on crée sa division correspondante
-            const groupeContenant = $('<div/>', { class: 'sub-form' }).appendTo(
-                contenant
-            )
+            const groupeContenant = $('<div/>', {
+                class: 'groupe',
+            }).appendTo(contenant)
             //Titre du groupe
             $('<h1/>', {
                 text: groupe.nom,
@@ -134,7 +134,7 @@ export function enregistrerConvertisseur(convertisseur) {
             groupe.entrees.forEach((entree) => {
                 //Pour chaque entree on crée sa division correspondante
                 const entreeContenant = $('<div/>', {
-                    class: 'form-row',
+                    class: 'entree card-container',
                 }).appendTo(groupeContenant)
 
                 //Input
@@ -142,16 +142,16 @@ export function enregistrerConvertisseur(convertisseur) {
                     type: 'text',
                     name: entree.nom,
                     id: entree.nom,
-                    class: 'form-field',
                     placeholder: entree.nom,
                     inputmode: convertisseur.inputmode,
+                    class: 'card',
                 }).appendTo(entreeContenant)[0]
 
                 //Unité
                 $('<label/>', {
                     text: entree.nom,
                     for: entree.nom,
-                    class: 'form-label',
+                    class: 'card',
                 }).appendTo(entreeContenant)
 
                 input.onclick = function () {

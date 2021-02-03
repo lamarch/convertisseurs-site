@@ -6,15 +6,15 @@
 
 /*
 Hiérarchie :
--form (convertisseur)
--sub-form (groupe)
--form-row (entree)
-    -form-field
-    -form-label
+-convertisseur
+-groupe
+-entree
+    -input
+    -label
 */
 
 /*Elément d'un convertisseur*/
-.form {
+.convertisseur {
     margin: auto;
     width: 600px;
     display: flex;
@@ -23,7 +23,7 @@ Hiérarchie :
 }
 
 /*Elément d'un groupe du convertisseur*/
-.sub-form > h1 {
+.groupe > h1 {
     position: sticky;
     background-color: var(--imp-background);
     top: 0px;
@@ -35,25 +35,22 @@ Hiérarchie :
     transition: border-color 0.3s ease;
 }
 
-.sub-form:focus-within > h1 {
+.groupe:focus-within > h1 {
     border-color: var(--border-focus);
 }
 
 /*Contenant d'une entrée du convertisseur*/
-.form-row {
-    position: relative;
-    display: flex;
+.entree {
     width: 100%;
     margin: 10px 0;
 }
 
 /*Input de l'entrée*/
-.form-field {
+.entree > input {
     display: block;
     width: 100%;
     padding: 8px 16px;
     line-height: 25px;
-    border-radius: 6px;
     -webkit-appearance: none;
     color: var(--color);
     border: 1px solid var(--border);
@@ -63,11 +60,10 @@ Hiérarchie :
     position: relative;
     z-index: 1;
     flex: 1 1 auto;
-    width: 1%;
 }
 
 /*Label contenant l'unité*/
-.form-label {
+.entree > label {
     text-align: center;
     padding: 8px 12px;
     line-height: 25px;
@@ -75,7 +71,7 @@ Hiérarchie :
     background: var(--imp-background);
     border: 1px solid var(--border);
     transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
-    width: 200px;
+    width: 250px;
 }
 
 /*
@@ -85,43 +81,19 @@ Modifications de pseudo-classes et éléments :
 /*
 "Placeholder" de l'input
 */
-.form-field::placeholder {
+.entree > input::placeholder {
     color: var(--placeholder);
 }
 
-.form-field:focus {
+.entree > input:focus {
     outline: none;
     border-color: var(--border-focus);
 }
 
 /*
-Pour tous les éléments étant en début de ligne.
-*/
-.form-label:first-child,
-.form-field:first-child {
-    border-radius: 6px 0 0 6px;
-}
-
-/*
-Pour tous les éléments étant en fin de ligne.
-*/
-.form-label:last-child,
-.form-field:last-child {
-    border-radius: 0 6px 6px 0;
-}
-
-/*
-Pour tous les éléments n'étant pas en début de ligne, on les décale vers la gauche pour plus de beauté
-*/
-.form-label:not(:first-child),
-.form-field:not(:first-child) {
-    margin-left: -1px;
-}
-
-/*
 Lorsque l'on séléctionne l'entrée, on "illumine" le label correspondant
 */
-.form-row:focus-within > .form-label {
+.entree:focus-within > label {
     color: var(--color-focus);
     background: var(--background-focus);
     border-color: var(--border-focus);

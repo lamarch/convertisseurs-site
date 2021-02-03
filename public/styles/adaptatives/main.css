@@ -6,7 +6,6 @@ Fichier CSS de modification pour les écrans mobiles.
 
 @media only screen and (max-width: 710px) {
     .card-container {
-        margin: 10px;
         flex-direction: column;
     }
 
@@ -22,32 +21,30 @@ Fichier CSS de modification pour les écrans mobiles.
         border-radius: 0 0 6px 6px;
     }
 
-    .form {
-        width: 100%;
+    .convertisseur {
+        width: 100% !important;
     }
 
-    .form-row {
+    .entree {
         flex-direction: column;
     }
 
-    .form-field,
-    .form-label {
-        width: 100%;
+    .entree > * {
+        width: 100% !important;
     }
 
-    .form-field:first-child {
+    .entree > :first-child {
         border-radius: 6px 6px 0 0 !important;
     }
 
-    .form-label:last-child {
+    .entree > :last-child {
         border-radius: 0 0 6px 6px !important;
     }
 
     /*
 Pour tous les éléments n'étant pas en début de ligne, on les décale vers la gauche pour plus de beauté
 */
-    .form-label:not(:first-child),
-    .form-field:not(:first-child) {
+    .entree > :not(:first-child) {
         margin-left: 0px;
         margin-top: -1px;
     }
