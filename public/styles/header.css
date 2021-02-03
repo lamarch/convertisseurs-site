@@ -26,25 +26,25 @@ header {
 Elément du menu
 */
 .menu-item {
-    box-sizing: border-box;
-    border: 1px solid var(--border);
     padding: 0.5em;
+    margin: 1em 0;
+
+    border: 1px solid var(--border);
     background-color: var(--background);
+    color: var(--color);
+
     text-align: center;
     font-size: larger;
-    color: var(--color);
-    margin: 1em 0;
+
+    transition: background-color 0.1s ease;
 }
 
 /*Elément du menu séléctionné*/
-.menu-item.selected-card {
+.menu-item.selected-card,
+.menu-item:hover {
     border-color: var(--border-focus);
     color: var(--color-focus);
     background-color: var(--background-focus);
-}
-
-.menu-item:hover:not(.selected-card) {
-    background-color: var(--imp-background);
 }
 
 .menu-item a {

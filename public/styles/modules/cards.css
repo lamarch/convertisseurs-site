@@ -3,6 +3,11 @@
     flex-direction: row;
 }
 
+.card {
+    box-sizing: border-box;
+    display: block;
+}
+
 .card:first-child {
     border-radius: 6px 0 0 6px;
 }
