@@ -155,10 +155,12 @@ export function enregistrerConvertisseur(convertisseur) {
                     class: 'card',
                 }).appendTo(entreeContenant)
 
-                input.onclick = function () {
-                    this.select()
+                console.log($('.little-size'))
+                if ($('.little-size').length === 0) {
+                    input.onclick = function () {
+                        this.select()
+                    }
                 }
-
                 entree.element = input
 
                 filtreEntree(input, entree.filtre, (valeur) => {
