@@ -161,12 +161,13 @@ export function enregistrerConvertisseur(convertisseur) {
                 entree.element = input
 
                 filtreEntree(input, entree.filtre, (valeur) => {
-                    if (valeur === '' || valeur === undefined) {
+                    valeur = convertisseur.preTraitement(valeur)
+                    if (typeof valeur == 'undefined') {
                         convertisseur.nouvelleValeur(entree.nom, undefined)
                     } else {
                         convertisseur.nouvelleValeur(
                             entree.nom,
-                            entree.envoi(convertisseur.preTraitement(valeur))
+                            entree.envoi(valeur)
                         )
                     }
                 })

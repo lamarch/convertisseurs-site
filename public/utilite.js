@@ -3,14 +3,24 @@ export const valeurNombreEntierValide = (valeur) => /^\d*$/.test(valeur)
 export const convertirNombre = (valeur) => {
     //TODO : enlever la notation scientifique dans la conversion de chaine en nombre sur les grands nombres
     //si c'est un point seul ou un moins, on retourne 0
-    if (valeur === '.' || valeur === '-' || valeur === '-.') {
-        return 0
+    valeur = valeur.replace(',', '.')
+    if (
+        typeof valeur == 'undefined' ||
+        valeur === '' ||
+        valeur === '.' ||
+        valeur === '-' ||
+        valeur === '-.'
+    ) {
+        return undefined
     } else {
-        return +valeur.replace(',', '.')
+        return +valeur
     }
 }
 
 export const chainifier = (valeur, decimals) => {
+    if (typeof valeur == 'undefined') return ''
+    if (valeur === 0) return 0
+
     const puissance = Math.pow(10, decimals)
 
     const res = Math.round(valeur * puissance) / puissance
@@ -30,10 +40,6 @@ export const chainifier = (valeur, decimals) => {
     //Sinon, on retourne un environ 0
     if (str === '0' && res === 0) {
         str = '≃ 0'
-    }
-
-    if (valeur === 0) {
-        str = ''
     }
 
     return str
