@@ -11,16 +11,18 @@ header {
     justify-content: center;
 }
 
-.menu-list {
-    margin: 0 1em;
-}
-
 #theme-switch-ctr {
     margin-left: auto;
     justify-self: flex-end;
     align-self: center;
     margin-right: 10px;
     text-align: center;
+
+    display: none;
+}
+
+.menu-list {
+    margin: 1em;
 }
 
 /*
@@ -28,7 +30,6 @@ Elément du menu
 */
 .menu-item {
     padding: 0.5em;
-    margin: 1em 0;
 
     border: 1px solid var(--border);
     background-color: var(--background);

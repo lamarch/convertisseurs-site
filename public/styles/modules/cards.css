@@ -19,7 +19,7 @@
 .horizontal-card-container > .card:last-child {
   border-radius: 0 6px 6px 0;
 }
-@media only screen and (max-width: 710px) {
+@media only screen and (max-width: 850px) {
   .horizontal-card-container.switch-orientation {
     display: flex;
     flex-direction: column;
