@@ -1,0 +1,55 @@
+/*
+
+Fichier CSS de modification pour les écrans mobiles.
+
+*/
+
+@media only screen and (max-width: 710px) {
+    .card-container {
+        flex-direction: column;
+    }
+
+    .card {
+        margin: 0;
+    }
+
+    .card:first-child {
+        border-radius: 6px 6px 0 0;
+    }
+
+    .card:last-child {
+        border-radius: 0 0 6px 6px;
+    }
+
+    .convertisseur {
+        width: 100% !important;
+    }
+
+    .entree {
+        flex-direction: column;
+    }
+
+    .entree > * {
+        width: 100% !important;
+    }
+
+    .entree > :first-child {
+        border-radius: 6px 6px 0 0 !important;
+    }
+
+    .entree > :last-child {
+        border-radius: 0 0 6px 6px !important;
+    }
+
+    /*
+Pour tous les éléments n'étant pas en début de ligne, on les décale vers la gauche pour plus de beauté
+*/
+    .entree > :not(:first-child) {
+        margin-left: 0px;
+        margin-top: -1px;
+    }
+
+    #label-precision {
+        margin-bottom: 15px;
+    }
+}

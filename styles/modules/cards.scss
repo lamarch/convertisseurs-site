@@ -1,0 +1,59 @@
+@import '../variables.scss';
+
+.card {
+    box-sizing: border-box;
+    display: block;
+
+    &:not(:first-child, :last-child) {
+        border-radius: 0 0 0 0;
+    }
+}
+
+@mixin horizontal-card-container {
+    display: flex;
+    flex-direction: row;
+
+    > .card:first-child {
+        border-radius: 6px 0 0 6px;
+    }
+
+    > .card:not(:first-child) {
+        margin-left: -1px;
+    }
+
+    > .card:last-child {
+        border-radius: 0 6px 6px 0;
+    }
+
+    @media only screen and (max-width: $max-width) {
+        &.switch-orientation {
+            @include vertical-card-container();
+        }
+    }
+}
+
+@mixin vertical-card-container {
+    display: flex;
+    flex-direction: column;
+
+    > .card:first-child {
+        border-radius: 6px 6px 0 0;
+    }
+
+    > .card:not(:first-child) {
+        margin-left: 0px;
+        margin-top: -1px;
+    }
+
+    > .card:last-child {
+        border-radius: 0 0 6px 6px;
+    }
+}
+
+.horizontal-card-container {
+    @include horizontal-card-container();
+}
+
+.vertical-card-container {
+    @include vertical-card-container();
+}

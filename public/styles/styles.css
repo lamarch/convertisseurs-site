@@ -1,14 +1,15 @@
+@charset "UTF-8";
 /*
 Concerne la base (:root, html & body)
 */
-@import 'bases.css';
+@import "bases.css";
 /*
 Concerne tous les éléments
 */
-@import 'modulaire.css';
+@import "modulaire.css";
+@import "header.css";
+@import "main.css";
+@import "footer.css";
+@import "adaptatives.css";
 
-@import 'header.css';
-@import 'main.css';
-@import 'footer.css';
-
-@import 'adaptatives.css';
+/*# sourceMappingURL=styles.css.map */

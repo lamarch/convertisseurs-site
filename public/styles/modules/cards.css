@@ -1,21 +1,54 @@
-.card-container {
-    display: flex;
-    flex-direction: row;
-}
-
 .card {
-    box-sizing: border-box;
-    display: block;
+  box-sizing: border-box;
+  display: block;
+}
+.card:not(:first-child, :last-child) {
+  border-radius: 0 0 0 0;
 }
 
-.card:first-child {
-    border-radius: 6px 0 0 6px;
+.horizontal-card-container {
+  display: flex;
+  flex-direction: row;
+}
+.horizontal-card-container > .card:first-child {
+  border-radius: 6px 0 0 6px;
+}
+.horizontal-card-container > .card:not(:first-child) {
+  margin-left: -1px;
+}
+.horizontal-card-container > .card:last-child {
+  border-radius: 0 6px 6px 0;
+}
+@media only screen and (max-width: 710px) {
+  .horizontal-card-container.switch-orientation {
+    display: flex;
+    flex-direction: column;
+  }
+  .horizontal-card-container.switch-orientation > .card:first-child {
+    border-radius: 6px 6px 0 0;
+  }
+  .horizontal-card-container.switch-orientation > .card:not(:first-child) {
+    margin-left: 0px;
+    margin-top: -1px;
+  }
+  .horizontal-card-container.switch-orientation > .card:last-child {
+    border-radius: 0 0 6px 6px;
+  }
 }
 
-.card:not(:first-child) {
-    margin-left: -1px;
+.vertical-card-container {
+  display: flex;
+  flex-direction: column;
+}
+.vertical-card-container > .card:first-child {
+  border-radius: 6px 6px 0 0;
+}
+.vertical-card-container > .card:not(:first-child) {
+  margin-left: 0px;
+  margin-top: -1px;
+}
+.vertical-card-container > .card:last-child {
+  border-radius: 0 0 6px 6px;
 }
 
-.card:last-child {
-    border-radius: 0 6px 6px 0;
-}
+/*# sourceMappingURL=cards.css.map */

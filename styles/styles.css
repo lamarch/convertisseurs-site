@@ -1,0 +1,14 @@
+/*
+Concerne la base (:root, html & body)
+*/
+@import 'bases.css';
+/*
+Concerne tous les éléments
+*/
+@import 'modulaire.css';
+
+@import 'header.css';
+@import 'main.css';
+@import 'footer.css';
+
+@import 'adaptatives.css';

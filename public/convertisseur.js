@@ -134,7 +134,7 @@ export function enregistrerConvertisseur(convertisseur) {
             groupe.entrees.forEach((entree) => {
                 //Pour chaque entree on crée sa division correspondante
                 const entreeContenant = $('<div/>', {
-                    class: 'entree card-container',
+                    class: 'entree horizontal-card-container',
                 }).appendTo(groupeContenant)
 
                 //Input
