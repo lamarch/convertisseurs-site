@@ -3,7 +3,7 @@ export const valeurNombreEntierValide = (valeur) => /^\d*$/.test(valeur)
 export const convertirNombre = (valeur) => {
     //TODO : enlever la notation scientifique dans la conversion de chaine en nombre sur les grands nombres
     //si c'est un point seul ou un moins, on retourne 0
-    valeur = valeur.replace(',', '.')
+    valeur = valeur.replace(',', '.').replace('≃', '')
     if (
         typeof valeur == 'undefined' ||
         valeur === '' ||
