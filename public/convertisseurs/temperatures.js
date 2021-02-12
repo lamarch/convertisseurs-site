@@ -1,10 +1,10 @@
-import { convertirNombre, valeurNombreValide, chainifier } from '../utilite.js'
+import { convertirNombre, chainifier, nombreValide } from '../utilite.js'
 import {
     creerConvertisseur,
     enregistrerConvertisseur,
 } from '../convertisseur.js'
 
-const convertisseur = creerConvertisseur('Températures', valeurNombreValide)
+const convertisseur = creerConvertisseur('Températures', nombreValide())
 
 convertisseur
     .ajouterGroupe('Communes')
@@ -16,7 +16,8 @@ convertisseur
     .ajouterEntree(
         'Kelvin',
         (val) => val,
-        (val) => val
+        (val) => val,
+        nombreValide(true, false)
     )
     .ajouterEntree(
         'Fahrenheit',
@@ -26,7 +27,8 @@ convertisseur
     .ajouterEntree(
         'Rankine',
         (val) => val / 1.8,
-        (val) => val * 1.8
+        (val) => val * 1.8,
+        nombreValide(true, false)
     )
 
 convertisseur.preTraitement = (val) => convertirNombre(val)

@@ -1,5 +1,14 @@
-export const valeurNombreValide = (valeur) => /^-?\d*[.,]?\d*$/.test(valeur)
-export const valeurNombreEntierValide = (valeur) => /^\d*$/.test(valeur)
+export function nombreValide(flottant = true, negatif = true) {
+    let pattern = '^'
+    if (negatif) pattern += '-?'
+    pattern += '\\d*'
+    if (flottant) pattern += '[.,]?\\d*$'
+    const reg = RegExp(pattern)
+    return (val) => reg.test(val)
+}
+
+export const valeurNombreValide = (valeur) => nombreValide(true, true)(valeur)
+
 export const convertirNombre = (valeur) => {
     //TODO : enlever la notation scientifique dans la conversion de chaine en nombre sur les grands nombres
     //si c'est un point seul ou un moins, on retourne 0
