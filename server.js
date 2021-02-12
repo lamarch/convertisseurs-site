@@ -1,4 +1,3 @@
-//cron
 //Framework ExpressJS
 import express from 'express'
 //Pour accéder à la variable d'environnement, afin de connaitre le port d'écoute du serveur
