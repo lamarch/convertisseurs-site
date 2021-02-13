@@ -7,7 +7,7 @@
         "url": "https://github.com/lamarch/convertisseurs-site.git"
     },
     "scripts": {
-        "css": "sass --watch ./styles:./public/styles/",
+        "css": "sass --watch ./styles/:./public/styles/",
         "prod": "sass ./styles:./public/styles/ && node -r dotenv/config server.js",
         "dev": "sass ./styles:./public/styles/ && nodemon -r dotenv/config --inspect server.js *.ejs .env"
     },

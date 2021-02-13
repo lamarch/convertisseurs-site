@@ -46,27 +46,24 @@
     </head>
     <body>
         <header>
-            <nav class="header-nav">
-                <div  class="menu-list horizontal-card-container switch-orientation">
+            <nav class="menu-list vertical-card-container">
 
-                    <% convertisseurs.forEach((conv)=>{ %>
-                        <a
-                        href="<%=conv.adresse.slice(0, -3)%>"
-                        style="text-decoration: none"
-                        class="card menu-item <%= conv.adresse == convertisseur.adresse ? "selected-card" : ""%>"
-                        >
-                        <div>
-                            <%= conv.nom.replace(/^\w/, c => c.toUpperCase());%>
-                        </div>
-                        </a>
-                    <% }) %>
-                </div>
-                <div id="theme-switch-ctr">
-                    <label for="theme-switch">Dark theme : </label>
-                    <input id="theme-switch" type="checkbox">
-                </div>
+                <% convertisseurs.forEach((conv)=>{ %>
+                    <a
+                    href="<%=conv.adresse.slice(0, -3)%>"
+                    style="text-decoration: none"
+                    class="card menu-item <%= conv.adresse == convertisseur.adresse ? "selected-card" : ""%>"
+                    >
+                    <div>
+                        <%= conv.nom.replace(/^\w/, c => c.toUpperCase());%>
+                    </div>
+                    </a>
+                <% }) %>
             </nav>
-
+            <div id="theme-switch-ctr">
+                <label for="theme-switch">Dark theme : </label>
+                <input id="theme-switch" type="checkbox">
+            </div>
         </header>
         <main id="main">
 

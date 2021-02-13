@@ -1,4 +1,5 @@
 #main {
+    margin-left: $sidebar-width;
     text-align: center;
     padding: 15px;
     height: 100%;
@@ -16,7 +17,8 @@ Hiérarchie :
 /*Elément d'un convertisseur*/
 .convertisseur {
     margin: auto;
-    width: 600px;
+    min-width: 600px;
+    max-width: 700px;
     display: flex;
     flex-direction: column;
     font-size: 18px;
@@ -115,4 +117,32 @@ Styles pour la barre de définition de la précision
 
 #precision {
     margin-bottom: 15px;
+}
+
+@media screen and (max-width: $max-width-1) {
+    #main {
+        margin: 0;
+    }
+
+    .convertisseur {
+        min-width: 0 !important;
+    }
+}
+
+@media only screen and (max-width: $max-width-2) {
+    .convertisseur {
+        width: 100% !important;
+    }
+
+    .entree {
+        @include vertical-card-container();
+    }
+
+    .entree > * {
+        width: 100% !important;
+    }
+
+    #label-precision {
+        margin-bottom: 15px;
+    }
 }

@@ -1,3 +1,7 @@
+$max-width-1: 875px;
+$max-width-2: 630px;
+$sidebar-width: 250px;
+
 :root {
     --color: #20242c;
     --border: #aab3c4;
@@ -34,8 +38,6 @@ html {
 body {
     margin: 0;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 *,

@@ -1,54 +1,17 @@
-@charset "UTF-8";
-header {
-  width: 100%;
-  z-index: 9;
-  background-color: var(--imp-background);
-  transition: background-color 0.3s ease;
-}
+/* Error: Undefined variable.
+ *   ,
+ * 3 |     width: $sidebar-width;
+ *   |            ^^^^^^^^^^^^^^
+ *   '
+ *   styles\header.scss 3:12  root stylesheet */
 
-.header-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a   \2577 \a 3 \2502      width: $sidebar-width;\d\a   \2502             ^^^^^^^^^^^^^^\a   \2575 \a   styles\\header.scss 3:12  root stylesheet";
 }
-
-#theme-switch-ctr {
-  margin-left: auto;
-  justify-self: flex-end;
-  align-self: center;
-  margin-right: 10px;
-  text-align: center;
-  display: none;
-}
-
-.menu-list {
-  margin: 1em;
-}
-
-/*
-Elément du menu
-*/
-.menu-item {
-  padding: 0.5em;
-  border: 1px solid var(--border);
-  background-color: var(--background);
-  color: var(--color);
-  text-align: center;
-  font-size: larger;
-  transition: background-color 0.1s ease;
-}
-
-/*Elément du menu séléctionné*/
-.menu-item.selected-card,
-.menu-item:hover {
-  border-color: var(--border-focus);
-  color: var(--color-focus);
-  background-color: var(--background-focus);
-}
-
-.menu-item a {
-  padding: 0;
-  text-decoration: none;
-}
-
-/*# sourceMappingURL=header.css.map */
