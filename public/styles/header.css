@@ -10,17 +10,16 @@ header {
   background-color: var(--imp-background);
   transition: background-color 0.3s ease;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 }
 
 #theme-switch-ctr {
-  margin-left: auto;
-  justify-self: flex-end;
+  margin: 10px;
+  margin-top: auto;
   align-self: center;
-  margin-right: 10px;
   text-align: center;
-  display: none;
+  outline: none;
 }
 
 .menu-list {
@@ -61,8 +60,8 @@ Elément du menu
   }
 
   #theme-switch-ctr {
-    margin: 0 auto;
-    margin-top: 10px;
+    margin: 0;
+    margin-bottom: 16px;
   }
 }
 
