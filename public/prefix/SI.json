@@ -1,0 +1,38 @@
+{
+    "value": { "operation": "exponent", "value": "10" },
+    "groups": {
+        "très petites": {
+            "zepto": { "link": "z", "exp": -24 },
+            "yocto": { "link": "y", "exp": -21 },
+            "atto": { "link": "a", "exp": -18 },
+            "femto": { "link": "f", "exp": -15 }
+        },
+        "petites": {
+            "pico": { "link": "p", "exp": -12 },
+            "nano": { "link": "n", "exp": -9 },
+            "micro": { "link": "µ", "exp": -6 }
+        },
+
+        "normales": {
+            "milli": { "link": "m", "exp": -3 },
+            "centi": { "link": "c", "exp": -2 },
+            "deci": { "link": "d", "exp": -1 },
+            "-": { "link": "", "exp": 0 },
+            "deca": { "link": "da", "exp": 1 },
+            "hecto": { "link": "h", "exp": 2 },
+            "kilo": { "link": "k", "exp": 3 }
+        },
+        
+        "grandes": {
+            "mega": { "link": "M", "exp": 6 },
+            "giga": { "link": "G", "exp": 9 },
+            "téra": { "link": "T", "exp": 12 }
+        },
+        "très grandes": {
+            "péta": { "link": "P", "exp": 15 },
+            "exa": { "link": "E", "exp": 18 },
+            "zetta": { "link": "Z", "exp": 21 },
+            "yotta": { "link": "Y", "exp": 24 }
+        }
+    }
+}
