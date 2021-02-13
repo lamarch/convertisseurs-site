@@ -1,5 +1,5 @@
 export function nombreValide(flottant = true, negatif = true) {
-    let pattern = '^'
+    let pattern = '^≃?'
     if (negatif) pattern += '-?'
     pattern += '\\d*'
     if (flottant) pattern += '[.,]?\\d*$'
@@ -48,7 +48,7 @@ export const chainifier = (valeur, decimals) => {
     //Si la valeur est 0 et que le résultat et aussi 0, alors on retourne une chaine vide
     //Sinon, on retourne un environ 0
     if (str === '0' && res === 0) {
-        str = '≃ 0'
+        str = '≃0'
     }
 
     return str
