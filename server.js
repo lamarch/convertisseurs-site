@@ -124,7 +124,7 @@ app.get('*', (req, res) => {
     res.send('Page inexistante.')
 })
 
-if (port == 'undefined') {
+if (typeof port == 'undefined') {
     console.log('Attention ! Aucun port spécifié : port par defaut = 80')
     port = 80
 }
