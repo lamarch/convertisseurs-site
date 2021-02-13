@@ -1,9 +1,9 @@
-/* Error: Undefined variable.
- *   ,
- * 2 |     margin-left: $sidebar-width;
- *   |                  ^^^^^^^^^^^^^^
- *   '
- *   styles\main.scss 2:18  root stylesheet */
+/* Error: Undefined mixin.
+ *     ,
+ * 140 |         @include vertical-card-container();
+ *     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *     '
+ *   styles\main.scss 140:9  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 2 \2502      margin-left: $sidebar-width;\d\a   \2502                   ^^^^^^^^^^^^^^\a   \2575 \a   styles\\main.scss 2:18  root stylesheet";
+  content: "Error: Undefined mixin.\a     \2577 \a 140 \2502          @include vertical-card-container();\d\a     \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a     \2575 \a   styles\\main.scss 140:9  root stylesheet";
 }

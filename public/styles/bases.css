@@ -1,0 +1,52 @@
+:root {
+  --color: #20242c;
+  --border: #aab3c4;
+  --background: #fff;
+  --imp-background: #b6c0d3;
+  --main-background: rgb(238, 235, 252);
+  --placeholder: #9ca0a8;
+  --border-focus: #275efe;
+  --color-focus: #fff;
+  --background-focus: #4267d6;
+}
+
+.dark-theme:root {
+  --color: #d3cfc9;
+  --border: #444a4d;
+  --background: #000;
+  --imp-background: #272b2c;
+  --main-background: #181a1b;
+  --placeholder: #9ca0a8;
+  --border-focus: #275efe;
+  --color-focus: #fff;
+  --background-focus: #22409b;
+}
+
+html {
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: var(--main-background);
+  color: var(--color);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1,
+h3 {
+  margin: 0;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+/*# sourceMappingURL=bases.css.map */
