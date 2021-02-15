@@ -158,6 +158,7 @@ export function enregistrerConvertisseur(convertisseur) {
                 if ($('.little-size').length === 0) {
                     input.onclick = function () {
                         this.select()
+                        convertisseur.entree_selectionee = input
                     }
                 }
                 entree.element = input
@@ -180,7 +181,11 @@ export function enregistrerConvertisseur(convertisseur) {
         //on envoi un évenement 'faux' à la première entrée de la liste
         if (convertisseur.entrees.length > 0) {
             window.precisionChange = () => {
-                envoyerEvenement(convertisseur.entrees[0].element, 'mouseup')
+                const entree =
+                    typeof convertisseur.entree_selectionee == 'undefined'
+                        ? convertisseur.entrees[0].element
+                        : convertisseur.entree_selectionee
+                envoyerEvenement(entree, 'mouseup')
             }
         }
     }
