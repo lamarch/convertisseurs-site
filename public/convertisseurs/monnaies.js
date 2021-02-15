@@ -71,7 +71,7 @@ if (typeof $ != 'undefined') {
 }
 
 convertisseur.preTraitement = (val) => convertirNombre(val)
-convertisseur.postTraitement = (val) => chainifier(val, window.precision)
+convertisseur.postTraitement = (val) => chainifier(val, convertisseur.precision)
 convertisseur.a_precision = true
 
 export { convertisseur }

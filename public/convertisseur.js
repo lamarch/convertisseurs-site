@@ -46,11 +46,12 @@ export function creerConvertisseur(nom, filtreGlobal = undefined) {
         entrees: [],
         groupes: [],
         inputmode: 'numeric',
+        precision: 0,
     }
 }
 
-function creerPrecision() {
-    window.precision = 3
+function creerPrecision(convertisseur) {
+    convertisseur.precision = 3
     $('<div/>')
         .load('./partials/precision.html', () => {
             $('#precision')
@@ -64,9 +65,10 @@ function creerPrecision() {
                         actif.blur()
                     }
 
-                    window.precision = this.value
+                    convertisseur.precision = this.value
                     this.labels[0].innerText = `Précision : ${this.value}`
-                    if (window.precisionChange) window.precisionChange()
+                    if (convertisseur.precisionChange)
+                        convertisseur.precisionChange()
                 })
                 .trigger('input')
         })
@@ -88,7 +90,7 @@ export function enregistrerConvertisseur(convertisseur) {
 
         //si le convertisseur requiert une barre de précision
         if (convertisseur.a_precision) {
-            creerPrecision()
+            creerPrecision(convertisseur)
         }
 
         //cette fonction est exécutée à chaque fois qu'une entrée recoit une nouvelle valeur valide
@@ -180,7 +182,7 @@ export function enregistrerConvertisseur(convertisseur) {
         //Afin d'actualiser les valeurs lors du changement de précision de la fenetre
         //on envoi un évenement 'faux' à la première entrée de la liste
         if (convertisseur.entrees.length > 0) {
-            window.precisionChange = () => {
+            convertisseur.precisionChange = () => {
                 const entree =
                     typeof convertisseur.entree_selectionee == 'undefined'
                         ? convertisseur.entrees[0].element

@@ -11,7 +11,7 @@ const convertisseur = creerConvertisseur(
 )
 
 convertisseur.preTraitement = (val) => convertirNombre(val)
-convertisseur.postTraitement = (val) => chainifier(val, window.precision)
+convertisseur.postTraitement = (val) => chainifier(val, convertisseur.precision)
 
 convertisseur
     .ajouterGroupe('Unités SI')
