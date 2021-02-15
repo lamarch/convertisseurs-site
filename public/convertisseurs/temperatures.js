@@ -16,8 +16,7 @@ convertisseur
     .ajouterEntree(
         'Kelvin',
         (val) => val,
-        (val) => val,
-        nombreValide(true, false)
+        (val) => val
     )
     .ajouterEntree(
         'Fahrenheit',
@@ -27,8 +26,7 @@ convertisseur
     .ajouterEntree(
         'Rankine',
         (val) => val / 1.8,
-        (val) => val * 1.8,
-        nombreValide(true, false)
+        (val) => val * 1.8
     )
 
 convertisseur.preTraitement = (val) => convertirNombre(val)
