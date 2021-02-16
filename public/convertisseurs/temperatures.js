@@ -31,7 +31,7 @@ convertisseur
 
 convertisseur.preTraitement = (val) => convertirNombre(val)
 convertisseur.postTraitement = (val) =>
-    chainifier(val, convertisseur.precision ?? 0)
+    chainifier(val, convertisseur.precision)
 convertisseur.a_precision = true
 
 enregistrerConvertisseur(convertisseur)
