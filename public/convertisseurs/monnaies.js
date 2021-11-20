@@ -74,4 +74,4 @@ convertisseur.preTraitement = (val) => convertirNombre(val)
 convertisseur.postTraitement = (val) => chainifier(val, convertisseur.precision)
 convertisseur.a_precision = true
 
-export { convertisseur }
+// export { convertisseur }
