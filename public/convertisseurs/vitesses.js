@@ -40,8 +40,8 @@ convertisseur
     )
     .ajouterEntree(
         'mach',
-        (val) => val / 3.6 / 340,
-        (val) => val * 3.6 * 340
+        (val) => val * 340,
+        (val) => val / 340
     )
     .ajouterEntree(
         'pieds/min',
