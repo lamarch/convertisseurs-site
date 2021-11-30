@@ -30,13 +30,13 @@ convertisseur
     .ajouterGroupe('Autres')
     .ajouterEntree(
         'noeuds, miles nautiques/h',
-        (val) => val / 3.6 / 1.852,
-        (val) => val * 3.6 * 1.852
+        (val) => val / 3.6 * 1.852,
+        (val) => val * 3.6 / 1.852
     )
     .ajouterEntree(
         'mph',
-        (val) => val / 3.6 / 1.609,
-        (val) => val * 3.6 * 1.609
+        (val) => val / 3.6 * 1.609,
+        (val) => val * 3.6 / 1.609
     )
     .ajouterEntree(
         'mach',
